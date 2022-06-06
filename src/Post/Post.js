@@ -1,17 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { GrLike } from 'react-icons/gr';
 import Title from '../Title/Title';
+import s from './Post.module.scss'
 
-const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg'
+// const Post = ({ imageUrl, imageAlt }) => {
+//     return (
+//         <div>
+//             <img
+//                 className={s.image}
+//                 alt={imageAlt}
+//                 src={imageUrl} />
+//             <GrLike />
+//             <Title text='some title' />
+//         </div>
+//     )
+// }
+class Post extends Component {
+    render() {
+        const { imageUrl, imageAlt } = this.props;
+        return (
+            <div>
 
-const Post = () => {
-    return (
-        <div>
-            <img alt='nature' src={imageUrl} width={300} />
-            <GrLike />
-            <Title text='some title' />
-        </div>
-    )
+                <div>
+                    <img
+                        className={s.image}
+                        src={imageUrl}
+                        alt={imageAlt}
+                    />
+                </div>
+                <GrLike />
+                <Title text='some title' />
+            </div>
+        )
+    }
+}
+Post.propTypes = {
+    imageUrl: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
 }
 
 export default Post
