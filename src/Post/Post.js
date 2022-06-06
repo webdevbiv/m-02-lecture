@@ -17,11 +17,13 @@ import s from './Post.module.scss'
 //     )
 // }
 class Post extends Component {
+    state = {
+        isLiked: false
+    }
     render() {
         const { imageUrl, imageAlt } = this.props;
         return (
             <div>
-
                 <div>
                     <img
                         className={s.image}
@@ -29,15 +31,18 @@ class Post extends Component {
                         alt={imageAlt}
                     />
                 </div>
-                <GrLike />
-                <Title text='some title' />
+                <GrLike
+                    className={s.like}
+                    onClick={() => console.log('click')}
+                />
+                <Title text='some title test' />
             </div>
         )
     }
 }
 Post.propTypes = {
     imageUrl: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
+    imageAlt: PropTypes.string.isRequired,
 }
 
 export default Post
