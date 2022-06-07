@@ -20,6 +20,11 @@ class Post extends Component {
     state = {
         isLiked: false
     }
+    toggleLike = () => {
+        this.setState(prev => ({
+            isLiked: !prev.isLiked
+        }))
+    }
 
     render() {
         const { imageUrl, imageAlt } = this.props;
@@ -34,14 +39,12 @@ class Post extends Component {
                         alt={imageAlt}
                     />
                 </div>
-                <GrLike
-                    className={s.like}
-                    onClick={() => {
-                        this.setState(prev => ({
-                            isLiked: !prev.isLiked
-                        }))
-                    }}
-                />
+                <div onClick={this.toggleLike}>
+                    <GrLike
+                        className={s.like}
+
+                    />
+                </div>
                 <Title text='some title test' />
             </div>
         )
