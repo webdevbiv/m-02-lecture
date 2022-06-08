@@ -3,8 +3,14 @@
     margin-bottom: 10px;
 }
 
-.like {
+.liked {
     path {
         stroke: red;
+    }
+}
+
+.notLiked {
+    path {
+        stroke: black;
     }
 }

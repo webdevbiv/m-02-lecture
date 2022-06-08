@@ -22,21 +22,22 @@ class Post extends Component {
         count: 0
     }
     toggleLike = () => {
-        this.setState(prev => ({
-            isLiked: !prev.isLiked
-        }))
-        this.setState(prev => ({
-            count: prev.count + 1
-        }))
+        this.props.onChange();
+        //     this.setState(prev => ({
+        //         isLiked: !prev.isLiked
+        //     }))
+        //     this.setState(prev => ({
+        //         count: prev.count + 1
+        //     }))
     }
 
     render() {
-        const { imageUrl, imageAlt } = this.props;
-        console.log(this.state);
+        const { imageUrl, imageAlt, count, isLiked } = this.props;
+        console.log(this.props);
         return (
             <div>
-                <div>Toggle count: {this.state.count}</div>
-                {this.state.isLiked ? 'liked' : 'unliked'}
+                <div>Toggle count: {count}</div>
+                {isLiked ? 'liked' : 'unliked'}
                 <div>
                     <img
                         className={s.image}
@@ -46,8 +47,8 @@ class Post extends Component {
                 </div>
                 <div onClick={this.toggleLike}>
                     <GrLike
-                        className={s.like}
-
+                        // className={s.like}
+                        className={isLiked ? s.liked : s.notLiked}
                     />
                 </div>
                 <Title text='some title test' />

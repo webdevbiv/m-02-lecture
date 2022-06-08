@@ -5,3 +5,10 @@
     justify-content: center;
     padding: 30px 0;
 }
+
+.postsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
