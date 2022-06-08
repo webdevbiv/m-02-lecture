@@ -18,11 +18,15 @@ import s from './Post.module.scss'
 // }
 class Post extends Component {
     state = {
-        isLiked: false
+        isLiked: false,
+        count: 0
     }
     toggleLike = () => {
         this.setState(prev => ({
             isLiked: !prev.isLiked
+        }))
+        this.setState(prev => ({
+            count: prev.count + 1
         }))
     }
 
@@ -31,6 +35,7 @@ class Post extends Component {
         console.log(this.state);
         return (
             <div>
+                <div>Toggle count: {this.state.count}</div>
                 {this.state.isLiked ? 'liked' : 'unliked'}
                 <div>
                     <img
