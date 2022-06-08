@@ -22,7 +22,10 @@ class Post extends Component {
         count: 0
     }
     toggleLike = () => {
-        this.props.onChange();
+        const { id, onChange } = this.props;
+        console.log(onChange);
+        onChange(id)
+        // this.props.onChange();
         //     this.setState(prev => ({
         //         isLiked: !prev.isLiked
         //     }))
